@@ -20,7 +20,7 @@
 <div class="uk-position-center  uk-text-center">
 
 <p class="uk-h3">
-    Abstract y Polimorfismo 
+    Interfaces 
 </p>
 <p class="uk-h5">
 
@@ -60,9 +60,13 @@ echo "<strong> Instancia 3 </strong> <br>";
 	$camioneta2= new Camioneta('Margarito', 'Pickup'); 
 	$camioneta2->movimiento();
 
-echo "<br> Total de camionetas: " . Camioneta::getTotal() . '<br>';
+//llamada metodo abstract
+echo "<br> Total de camionetas: " . Camioneta::getTotal() . '<br><br>';
 
-
+//Interface: llamada metodo Serializable
+$ser = serialize($carro);
+$newCarro = unserialize($ser);
+echo "Nuevo Carro propietario: " . $newCarro->getPropietario();
 
 ?>
 
