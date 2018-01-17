@@ -20,16 +20,14 @@
 <div class="uk-position-center  uk-text-center">
 
 <p class="uk-h3">
-    Namespaces 
+    Static 
 </p>
 <p class="uk-h5">
 
 <!-- 
 Programacion Orientada a Objetos::POO
-*Namespaces: con los namespaces podemos dividir el codigo y encapsularlo. 
-Le asignamos un nombre de espacio a nuestro codigo 
-para que cuando usemos el codigo de alguien mas no exista conflictos.
-*require_once: archivo se cargo solo una vez
+*static: se pueden acceder a atributos y metodos static sin la necesidad de instanciar la clase
+*self:: palabra reservada para acceder a variable static dentro del contexto.
 -->
 
 <?php 
@@ -38,7 +36,7 @@ para que cuando usemos el codigo de alguien mas no exista conflictos.
 include 'vehiculos/Auto.php';
 include 'vehiculos/Camioneta.php';
 
-//llamando namespace para usar en este archivo
+//llamando namespace 
 use Vehiculos\Auto;
 use Vehiculos\Camioneta;
 
@@ -55,10 +53,15 @@ echo "<strong><br> Clase Hija - Camioneta </strong> <br><br>";
 
 //instancia 2
 echo "<strong> Instancia 2 </strong> <br>";
-	$camioneta = new Camioneta('Pepe', '4x4'); 
-	$camioneta->movimiento();
-	echo "El propietario camioneta: " . $camioneta->getPropietario(); 
+	$camioneta1= new Camioneta('Pepe', '4x4'); 
+	$camioneta1->movimiento();
 
+//instancia 3
+echo "<strong> Instancia 3 </strong> <br>";
+	$camioneta2= new Camioneta('Margarito', 'Pickup'); 
+	$camioneta2->movimiento();
+
+echo "<br> Total de camionetas: " . Camioneta::getTotal() . '<br>';
 ?>
 
 

@@ -2,7 +2,7 @@
 
 namespace Vehiculos;
 
-//importando archivo de clase a heredar 
+//importando archivo  
 require_once 'VehiculoBase.php';
 
 //Clase hija 1
