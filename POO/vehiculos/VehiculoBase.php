@@ -3,7 +3,7 @@
 namespace Vehiculos;
 
 //clase Padre
-	class VehiculoBase {
+	abstract class VehiculoBase {
 
 		//atributo
 		protected $propietario; 
@@ -16,6 +16,7 @@ namespace Vehiculos;
 		
 		//metodo public
 		public function movimiento(){ 
+			echo $this->encendiendo();
 			echo "Moviendose vehiculo<br>";
 		}
 
@@ -29,6 +30,8 @@ namespace Vehiculos;
 			$this->propietario = $dueño;
 		}
 
+		//metodo abstract
+		public abstract function encendiendo();
 	}
 
 ?>

@@ -21,14 +21,21 @@ class Camioneta extends VehiculoBase{
 	}
 
     //metodo public
+	/*
 	public function movimiento(){ 
 		echo "Camioneta - " . $this->tipo . ": Moviendose<br>";
 	}
+	*/
 
 	//metodo get static
 	public static function getTotal(){
 		return self::$contador;
 	}
+
+	//implementacion metodo abstract
+		public function encendiendo(){
+			return 'Camioneta: encendiendo<br>';
+		}	
 
 }
 

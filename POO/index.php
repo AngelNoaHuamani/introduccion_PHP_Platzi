@@ -20,14 +20,13 @@
 <div class="uk-position-center  uk-text-center">
 
 <p class="uk-h3">
-    Static 
+    Abstract y Polimorfismo 
 </p>
 <p class="uk-h5">
 
 <!-- 
 Programacion Orientada a Objetos::POO
-*static: se pueden acceder a atributos y metodos static sin la necesidad de instanciar la clase
-*self:: palabra reservada para acceder a variable static dentro del contexto.
+*Abstract: las clases abstract sirven como clase padre o base y no son instanciadas.
 -->
 
 <?php 
@@ -62,6 +61,9 @@ echo "<strong> Instancia 3 </strong> <br>";
 	$camioneta2->movimiento();
 
 echo "<br> Total de camionetas: " . Camioneta::getTotal() . '<br>';
+
+
+
 ?>
 
 
