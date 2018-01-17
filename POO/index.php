@@ -20,76 +20,28 @@
 <div class="uk-position-center  uk-text-center">
 
 <p class="uk-h3">
-    Herencia 
+    Namespaces 
 </p>
 <p class="uk-h5">
 
 <!-- 
 Programacion Orientada a Objetos::POO
-*Herencia: es un proceso que nos ayuda a reutilizar codigo.
-*Protected: sera private pero tambien sera accedida por las clases hijas
+*Namespaces: con los namespaces podemos dividir el codigo y encapsularlo. 
+Le asignamos un nombre de espacio a nuestro codigo 
+para que cuando usemos el codigo de alguien mas no exista conflictos.
+*require_once: archivo se cargo solo una vez
 -->
 
 <?php 
 
+//importar archivo de clases 
+include 'vehiculos/Auto.php';
+include 'vehiculos/Camioneta.php';
 
-//clase Padre
-	class Vehiculo {
+//llamando namespace para usar en este archivo
+use Vehiculos\Auto;
+use Vehiculos\Camioneta;
 
-		//atributo
-		protected $propietario; 
-
-		//metodo constructor
-		public function __construct($chofer){
-			$this->propietario = $chofer;
-			echo "metodo-contructor<br>";
-		}
-		
-		//metodo public
-		public function movimiento(){ 
-			echo "Moviendose vehiculo<br>";
-		}
-
-		//metodo getter
-		public function getPropietario(){ 
-			return $this->propietario;
-		}
-
-		//metodo setter	
-		public function setPropietario($dueño){
-			$this->propietario = $dueño;
-		}
-
-	}
-
-//Clase hija 1
-	class Auto extends Vehiculo{
-		//metodo public
-			public function movimiento(){ 
-				echo "Auto: Moviendose<br>";
-			}
-	}
-
-//Clase hija 2
-	class Camioneta extends Vehiculo{
-		
-		private $tipo;
-
-		//constructor padre e hija
-		public function __construct($conductor, $type) {
-			$this->tipo = $type;
-		    /*
-			//Contructor padre cuando es private
-		    parent::__construct($conductor);
-			*/
-		    //accede con protected
-			$this->propietario = $conductor;
-		}
-	    //metodo public
-		public function movimiento(){ 
-				echo "Camioneta - " . $this->tipo . ": Moviendose<br>";
-		}
-	}
 
 echo "<strong> Clase Hija - Auto </strong> <br><br>"; 
 
