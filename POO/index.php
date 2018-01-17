@@ -14,69 +14,70 @@
 
 </head>
 
+
 <body>
 
 <div class="uk-position-center  uk-text-center">
 
 <p class="uk-h3">
-    Introduccion Programacion Orientada a Objetos 
+    Constructor y Destructor 
 </p>
 <p class="uk-h5">
 
 <!-- 
-Introduccion a Programacion Orientada a Objetos
-
-
-Paradigma de Programacion::POO
-1.clase: una plantilla de una entidad abstracta
-2.instancia: elementos concretos de esa clase
-*encapsulamiento: evitar que una variable private sea accedida 
-solo por medio de uso de metodos getter y setter.
-
-Contenido de una Clase::
-3.Atributos (caracteristicas,variables)
-4.Metodos (acciones,funciones)
-
-Metodo de Acceso::
-5.public: accede fuera de la clase
-6.private: cuando no queremos que se acceda desde afuera de la clase
-
-Palabras Reservadas:
-7.$this: se refiere al objeto actual usado
+Programacion Orientada a Objetos::POO
+1. Constructor: sera llamado inmediatamente despues que nosotros creamos el objeto
+2. Destructor: sera llamado en el momento que ya no exista ninguna referencia
 -->
 
 <?php 
 
-class Auto //clase
-	{
-		private $propietario; //atributo
-	
-		public function movimiento(){ //metodo
+//clase
+	class Auto {
+
+		//atributo
+		private $propietario; 
+
+		//metodo constructor
+		public function __construct($chofer){
+			$this->propietario = $chofer;
+			echo "metodo-contructor<br>";
+		}
+
+		//metodo destructor
+		public function __destruct(){
+			echo 'metodo-destructor<br>';
+		}
+		
+		//metodo public
+		public function movimiento(){ 
 			echo "Moviendose<br>";
 		}
 
-		public function getPropietario(){ //metodo getter
+		//metodo getter
+		public function getPropietario(){ 
 			return $this->propietario;
 		}
 
-		public function setPropietario($dueño){ //metodo setter	
+		//metodo setter	
+		public function setPropietario($dueño){
 			$this->propietario = $dueño;
 		}
 
 	}
 
-echo "<strong> Clase Auto </strong> <br>"; 
+echo "<strong> Clase Auto </strong> <br><br>"; 
 
-	$carro = new Auto(); //instancia
-	$carro->movimiento();  //llamada metodo public
-	
-	//llamada atributo public(atributo) o private(metodo get y set)
-	$carro->setPropietario('Pedro'); 
+//instancia 1
+echo "<strong> Instancia 1 </strong> <br>"; 
+	$carro = new Auto('Jorge'); 
+	$carro->movimiento();  
 	echo "El propietario es: " . $carro->getPropietario() . '<br>';
 
-	$carro2 = new Auto(); //instancia 2
-	$carro2->setPropietario('Daniel'); //metodo setter
-	echo "El propietario es: " . $carro2->getPropietario(); //metodo getter
+//instancia 2
+echo "<strong> Instancia 2 </strong> <br>";
+	$carro2 = new Auto('Frank'); 
+	echo "El propietario es: " . $carro2->getPropietario(); 
 
 ?>
 
