@@ -20,38 +20,34 @@
 <div class="uk-position-center  uk-text-center">
 
 <p class="uk-h3">
-    Constructor y Destructor 
+    Herencia 
 </p>
 <p class="uk-h5">
 
 <!-- 
 Programacion Orientada a Objetos::POO
-1. Constructor: sera llamado inmediatamente despues que nosotros creamos el objeto
-2. Destructor: sera llamado en el momento que ya no exista ninguna referencia
+*Herencia: es un proceso que nos ayuda a reutilizar codigo.
+*Protected: sera private pero tambien sera accedida por las clases hijas
 -->
 
 <?php 
 
-//clase
-	class Auto {
+
+//clase Padre
+	class Vehiculo {
 
 		//atributo
-		private $propietario; 
+		protected $propietario; 
 
 		//metodo constructor
 		public function __construct($chofer){
 			$this->propietario = $chofer;
 			echo "metodo-contructor<br>";
 		}
-
-		//metodo destructor
-		public function __destruct(){
-			echo 'metodo-destructor<br>';
-		}
 		
 		//metodo public
 		public function movimiento(){ 
-			echo "Moviendose<br>";
+			echo "Moviendose vehiculo<br>";
 		}
 
 		//metodo getter
@@ -66,18 +62,50 @@ Programacion Orientada a Objetos::POO
 
 	}
 
-echo "<strong> Clase Auto </strong> <br><br>"; 
+//Clase hija 1
+	class Auto extends Vehiculo{
+		//metodo public
+			public function movimiento(){ 
+				echo "Auto: Moviendose<br>";
+			}
+	}
+
+//Clase hija 2
+	class Camioneta extends Vehiculo{
+		
+		private $tipo;
+
+		//constructor padre e hija
+		public function __construct($conductor, $type) {
+			$this->tipo = $type;
+		    /*
+			//Contructor padre cuando es private
+		    parent::__construct($conductor);
+			*/
+		    //accede con protected
+			$this->propietario = $conductor;
+		}
+	    //metodo public
+		public function movimiento(){ 
+				echo "Camioneta - " . $this->tipo . ": Moviendose<br>";
+		}
+	}
+
+echo "<strong> Clase Hija - Auto </strong> <br><br>"; 
 
 //instancia 1
 echo "<strong> Instancia 1 </strong> <br>"; 
-	$carro = new Auto('Jorge'); 
+	$carro = new Auto('Juan'); 
 	$carro->movimiento();  
-	echo "El propietario es: " . $carro->getPropietario() . '<br>';
+	echo "El propietario auto: " . $carro->getPropietario() . '<br>';
+
+echo "<strong><br> Clase Hija - Camioneta </strong> <br><br>";	
 
 //instancia 2
 echo "<strong> Instancia 2 </strong> <br>";
-	$carro2 = new Auto('Frank'); 
-	echo "El propietario es: " . $carro2->getPropietario(); 
+	$camioneta = new Camioneta('Pepe', '4x4'); 
+	$camioneta->movimiento();
+	echo "El propietario camioneta: " . $camioneta->getPropietario(); 
 
 ?>
 
