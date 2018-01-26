@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Vehiculos;
 
@@ -6,7 +6,7 @@ namespace Vehiculos;
 	abstract class VehiculoBase {
 
 		//atributo
-		protected $propietario; 
+		protected $propietario;
 
 		//metodo constructor
 		public function __construct($chofer){
@@ -15,17 +15,17 @@ namespace Vehiculos;
 		}
 		
 		//metodo public
-		public function movimiento(){ 
+		public function movimiento(){
 			echo $this->encendiendo();
 			echo "Moviendose vehiculo<br>";
 		}
 
 		//metodo getter
-		public function getPropietario(){ 
+		public function getPropietario(){
 			return $this->propietario;
 		}
 
-		//metodo setter	
+		//metodo setter
 		public function setPropietario($dueño){
 			$this->propietario = $dueño;
 		}

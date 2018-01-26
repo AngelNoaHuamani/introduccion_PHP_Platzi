@@ -2,14 +2,14 @@
 
 namespace Vehiculos;
 
-//importando archivo  
+//importando archivo
 require_once 'VehiculoBase.php';
 
 //Clase hija 1
 	class Auto extends VehiculoBase implements \Serializable {
-		
+
 	//metodo public
-		public function movimiento(){ 
+		public function movimiento(){
 			echo $this->encendiendo() . '<br>';
 			echo "Auto: Moviendose<br>";
 		}
@@ -17,19 +17,19 @@ require_once 'VehiculoBase.php';
 	//implementacion metodo abstract
 		public function encendiendo(){
 			return 'Auto: encendiendo';
-		}		
+		}
 
-	//implementacion interfaz serialize	
+	//implementacion interfaz serialize
 		public function serialize(){
 			echo "Serializable<br>";
 			return $this->propietario;
-		}	
+		}
 
-	//implementacion interfaz unserialize	
+	//implementacion interfaz unserialize
 		public function unserialize($serialized){
 			echo "unSerializable<br>";
 			$this->propietario = $serialized;
-		}		
+		}
 
 	}
 
