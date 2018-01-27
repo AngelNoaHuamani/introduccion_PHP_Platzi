@@ -20,7 +20,7 @@
   <div class="uk-position-center  uk-text-center">
 
   <p class="uk-h3">
-      Excepciones
+      Traits
   </p>
   <p class="uk-h5">
 
@@ -36,10 +36,12 @@
       include 'vehiculos/Camioneta.php';
       include 'vehiculos/Carrito.php';
 
+
       //llamando namespace
       use Vehiculos\Auto;
       use Vehiculos\Camioneta;
       use Vehiculos\Carrito;
+
 
 
       echo "<strong> Clase Hija - Auto </strong> <br><br>";
@@ -49,6 +51,7 @@
       	$carro = new Auto('Juan');
       	$carro->movimiento();
       	echo "El propietario auto: " . $carro->getPropietario() . '<br>';
+        echo "GPS pos: " . $carro->getPos() . '<br>';
 
       echo "<strong><br> Clase Hija - Camioneta </strong> <br><br>";
 

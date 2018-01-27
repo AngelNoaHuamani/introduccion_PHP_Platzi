@@ -1,12 +1,16 @@
-<?php 
+<?php
 
 namespace Vehiculos;
 
 //importando archivo
 require_once 'VehiculoBase.php';
+require_once 'GPSTrait.php';
 
 //Clase hija 1
 	class Auto extends VehiculoBase implements \Serializable {
+
+	//Llamada Trait
+		use GPSTrait;
 
 	//metodo public
 		public function movimiento(){
