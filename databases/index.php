@@ -18,7 +18,7 @@
         <h1>Databases</h1>
         <ul>
           <li>
-            <a href="">Lista de Usuarios</a>
+            <a href="list.php">Lista de Usuarios</a>
           </li>
           <li>
             <a href="add.php">Agregar un Usuario</a>
